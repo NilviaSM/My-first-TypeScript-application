@@ -88,8 +88,15 @@ class Expenses implements IExpenses{
     }
 
     remove(id: number): boolean {
-        throw new Error("Method not implemented.");
-    } //controlador
+       const items = this.getItems().filter(item =>{
+           return item.id != id;
+       });
+  
+        this.expenses.createFrom(items);
+        return true;
+
+    } 
+    //controlador
 
     private convertCurrency(item:ExpensesItem, currency:Currency):number{
         switch(item.cost.currency){
@@ -116,7 +123,8 @@ class Expenses implements IExpenses{
                 break;
                 default:
                     return 0;
-        }
+      }
+
 
     }
 }

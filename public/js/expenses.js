@@ -17,7 +17,7 @@ var ArrayList = /** @class */ (function () {
     };
     ArrayList.prototype.get = function (index) {
         var item = this.items.filter(function (x, i) {
-            return i == index; //Resultado booblean que puede i o index
+            return i == index; //Resultado boolean que puede ser i o index
         });
         if (item.length == 0) {
             return null;
